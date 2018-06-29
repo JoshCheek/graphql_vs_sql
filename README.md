@@ -1,5 +1,5 @@
-GraphQL could have been SQL
-===========================
+GraphQL vs SQL
+==============
 
 I asked on [Twitter](https://twitter.com/josh_cheek/status/1012490394683224064)
 why GraphQL didn't just roll with an existing query language like SQL or Cypher.

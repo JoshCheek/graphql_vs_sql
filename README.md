@@ -26,9 +26,10 @@ RESOLVER = -> (obj, args, ctx) { Post.new args[:id], 'a', 'b', ["a"] }
 Post = Struct.new :id, :title, :body, :comments
 ```
 
-Next, we'll load the code that tells GraphQL about our types and wires our
-resolver into place. Then we'll query the GraphQL schema we created.
-GraphQL maped the query to the resolver, provided the id of `123`, and returned the resolver's post.
+Next, load the code that tells GraphQL about our types, and resolver.
+Then query the GraphQL schema it created.
+We see that GraphQL maped the query to the resolver,
+provided the id of `123`, and returned the resolver's post.
 
 ```ruby
 require_relative 'wire_up_graphql'
@@ -36,8 +37,8 @@ $graphql.execute('query { post(id: 123) { id title } }').to_h
 # => {"data"=>{"post"=>{"id"=>123, "title"=>"a"}}}
 ```
 
-So now, we do the same thing, but for SQL. Surprisingly,
-the result is the same!
+Now we do the same thing, but for SQL.
+Surprisingly, the result is the same!
 
 ```ruby
 require_relative 'wire_up_sql'

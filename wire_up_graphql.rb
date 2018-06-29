@@ -1,12 +1,3 @@
-# This code will wire GraphQL to our data.
-# We're using a struct for simplicity, a real implementation would probably be a database call
-# Our SQL implementation must be equally able to wire SQL queries to this code
-Post = Struct.new :id, :title, :body, :comments
-RESOLVER = -> (obj, args, ctx) {
-  Post.new args[:id], 'a', 'b', ["a"]
-}
-
-# ========== Now we wire up GraphQL ==========
 require 'graphql'
 
 # In GraphQL, we create the types independently from anything else

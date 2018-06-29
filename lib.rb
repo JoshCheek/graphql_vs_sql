@@ -18,7 +18,9 @@ class Sql
   def execute(raw_query)
     query            = parse(raw_query)
     op, field, value = query.where
-    resolvers[query.type].resolver[nil, {field => value}, {}]
+    result           = resolvers[query.type].resolver[nil, {field => value}, {}]
+    data             = query.fields.map { |field| [field, result[field]] }.to_h
+    { "data" => { query.type => data } }
   end
 
   private

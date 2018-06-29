@@ -1,9 +1,9 @@
 require 'pg_query'
 
 class Sql
-  Type    = Struct.new :name, :fields
-  Field   = Struct.new :name
   Resolve = Struct.new :type, :resolver
+  Type    = Struct.new :name, :fields
+  Field   = Struct.new :name # should include more data (eg field type), but that data is getting parsed as integers (probably values of a C enum)
   Select  = Struct.new :type, :fields, :where
 
   def define(type:, resolve:)
@@ -26,9 +26,7 @@ class Sql
   end
 
   def parse(raw_sql)
-    statements = PgQuery.parse(raw_sql).tree
-    raise "idk #{ast.inspect}" if statements.size != 1
-    from_ast statements[0]
+    from_ast PgQuery.parse(raw_sql).tree[0]
   end
 
   def from_ast(ast)

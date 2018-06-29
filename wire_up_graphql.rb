@@ -32,17 +32,6 @@ QueryRoot = GraphQL::ObjectType.define do
 end
 
 # This composes the toplevel things, though we only have one
-Schema = GraphQL::Schema.define do
+$graphql = GraphQL::Schema.define do
   query QueryRoot
 end
-
-# An example query
-Schema.execute(<<~GRAPHQL).to_h
-query {
-  post(id: 123) {
-    id
-    title
-  }
-}
-GRAPHQL
-# => {"data"=>{"post"=>{"id"=>123, "title"=>"a"}}}

@@ -61,5 +61,10 @@ and handed that to the resolver of the selected table.
 Conclusion
 ----------
 
-So, hopefully at this point I can say: "Why didn't GraphQL choose an existing
-language like SQL or Cypher or Datalog or Relational Algebra or whatever?"
+Finally someone chimed in with the answer:
+
+> It’s a very narrow subset of SQL. No aggregates, no functions, no arbitrary joins.
+> FB had FQL before GraphQL. It looked like SQL, so people expected all the features
+> of SQL. GraphQL was explicitly made to be more minimal
+>
+> -- [Matt Larraz](https://twitter.com/mattlarraz/status/1012686131530485760):

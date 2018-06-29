@@ -3,11 +3,11 @@ GraphQL vs SQL
 
 I asked on [Twitter](https://twitter.com/josh_cheek/status/1012490394683224064)
 why GraphQL didn't just roll with an existing query language like SQL or Cypher.
-
 I think people misunderstood the question as suggesting we should
-give clients query access to the database. That wasn't what I was asking.
+give clients query access to the database.
 
-If they want to map a query language to app code, then why not choose an existing
+Instead, I was saying that if they want to map a query language to app code,
+then why not choose an existing
 query language that everyone already knows? Just because it's SQL doesn't mean it's
 implemented by a relational database, it's "Structured Query Language", not
 "Relational Database Query Language"
@@ -17,7 +17,7 @@ To illustrate this, I created a SQL equivalent to GraphQL.
 Proof of Concept
 ----------------
 
-The entry point is `main.rb`, which begins by defining a `Post` structure that
+The entry point is [`main.rb`](main.rb), which begins by defining a `Post` structure that
 represents the data we might query from our database. Then it defines a `RESOLVER`,
 the lambda that we will provide to connect a query for a post to our Post structure.
 
